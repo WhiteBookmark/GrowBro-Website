@@ -1,0 +1,124 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# Compiled source files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+*.pyo
+__pycache__/
+
+# Package files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Environment & configuration files
+.env
+.env.local
+.env.*.local
+*.pid
+*.seed
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Python
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.dmypy.json
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
+build/
+.gradle/
+gradle-app.setting
+
+# Ruby
+*.gem
+.bundle/
+Gemfile.lock
+vendor/bundle/
+
+# PHP
+composer.lock
+vendor/
+
+# C/C++
+*.obj
+*.exe
+*.out
+*.app
+
+# Go
+*.exe
+*.test
+*.out
+
+# Rust
+/target/
+Cargo.lock
+
+# IDEs (general)
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+.classpath
+.project
+.settings/

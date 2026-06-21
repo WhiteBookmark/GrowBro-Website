@@ -225,12 +225,23 @@ p {
   border-bottom: 1px solid #333333;
 }
 
-.logos-grid {
+.logos-track {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 3rem;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 1.5rem));
+  }
 }
 
 .logo-item {
@@ -259,12 +270,24 @@ p {
   display: inline-block;
   padding: 0.9rem 2rem;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-weight: 600;
   transition: all 0.3s;
   border: 2px solid;
   cursor: pointer;
   font-size: 1rem;
+  box-shadow: 0 4px 0px rgba(255, 255, 255, 0.2), 0 8px 15px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 0px 0px rgba(255, 255, 255, 0.2), 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn:hover {
+  box-shadow: 0 6px 0px rgba(255, 255, 255, 0.3), 0 12px 20px rgba(0, 0, 0, 0.6);
+  transform: translateY(-4px);
 }
 
 .btn-primary {
@@ -309,7 +332,7 @@ p {
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 3rem;
+  margin: 0 auto 3rem auto;
 }
 
 .features-grid {
@@ -324,27 +347,31 @@ p {
   border: 1px solid #333333;
   border-radius: 8px;
   text-align: center;
-  transition: transform 0.3s, border-color 0.3s;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  transform-style: preserve-3d;
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
   border-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
 }
 
 .feature-icon {
   margin-bottom: 1.5rem;
   color: #ffffff;
+  transform: translateZ(60px);
 }
 
 .feature-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  transform: translateZ(40px);
 }
 
 .feature-card p {
   color: #cccccc;
   line-height: 1.8;
+  transform: translateZ(20px);
 }
 
 /* Our Work Section */
@@ -364,12 +391,13 @@ p {
   border: 1px solid #333333;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.3s, border-color 0.3s;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  transform-style: preserve-3d;
 }
 
 .work-item:hover {
-  transform: translateY(-5px);
   border-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
 }
 
 .work-media {
@@ -379,6 +407,33 @@ p {
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  transform: translateZ(30px);
+  position: relative;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.3s, background 0.3s;
+  z-index: 10;
+}
+
+.play-overlay svg {
+  margin-left: 4px;
+}
+
+.play-overlay:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .work-video {
@@ -393,6 +448,7 @@ p {
 
 .work-info {
   padding: 2rem;
+  transform: translateZ(50px);
 }
 
 .work-client {
@@ -422,29 +478,42 @@ p {
   padding: 2rem;
   border: 1px solid #333333;
   border-radius: 8px;
-  transition: all 0.3s;
+  transition: all 0.3s, box-shadow 0.3s;
+  transform-style: preserve-3d;
 }
 
 .benefit-item:hover {
   border-color: #ffffff;
   background-color: #0a0a0a;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
 }
 
 .benefit-number {
   font-size: 3rem;
   font-weight: bold;
   color: #333333;
+  margin-bottom: 0.5rem;
+  transform: translateZ(50px);
+}
+
+.benefit-icon {
   margin-bottom: 1rem;
+  color: #ffffff;
+  transform: translateZ(40px);
+  display: flex;
+  justify-content: flex-start;
 }
 
 .benefit-item h3 {
   font-size: 1.5rem;
   margin-bottom: 0.8rem;
+  transform: translateZ(35px);
 }
 
 .benefit-item p {
   color: #cccccc;
   line-height: 1.8;
+  transform: translateZ(20px);
 }
 
 /* Testimonials Section */
@@ -979,12 +1048,16 @@ p {
 
 .footer-links li {
   margin-bottom: 0.8rem;
+  font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
 }
 
 .footer-links a {
   color: #cccccc;
   text-decoration: none;
   transition: color 0.3s;
+  font-family: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
 }
 
 .footer-links a:hover {
@@ -1015,6 +1088,57 @@ p {
   padding-top: 2rem;
   border-top: 1px solid #333333;
   color: #888888;
+}
+
+/* 3D Elevated Cards */
+.feature-card, .work-item, .benefit-item, .testimonial-card, .pricing-card, .service-category, .mission-card, .value-item, .location-section, .contact-form-wrapper {
+  box-shadow: 0 6px 0px rgba(255, 255, 255, 0.15), 0 12px 24px rgba(0, 0, 0, 0.6);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover, .work-item:hover, .benefit-item:hover, .testimonial-card:hover, .pricing-card:hover, .service-category:hover, .mission-card:hover, .value-item:hover, .location-section:hover, .contact-form-wrapper:hover {
+  box-shadow: 0 10px 0px rgba(255, 255, 255, 0.25), 0 20px 40px rgba(0, 0, 0, 0.8);
+  border-color: #ffffff;
+}
+
+/* Diagonal Hand-Drawn Underline for Headings */
+.section-title,
+.page-hero h1,
+.about-intro h2,
+.values-section h2,
+.location-section h2,
+.contact-info h2 {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.section-title,
+.page-hero h1,
+.about-intro h2,
+.values-section h2,
+.location-section h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title::after,
+.page-hero h1::after,
+.about-intro h2::after,
+.values-section h2::after,
+.location-section h2::after,
+.contact-info h2::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  bottom: -8px;
+  width: 104%;
+  height: 20px;
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20' preserveAspectRatio='none'%3E%3Cpath d='M2,17 Q50,8 98,2' stroke='%23ffffff' stroke-width='4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") no-repeat center center;
+  background-size: 100% 100%;
+  z-index: -1;
 }
 
 /* Responsive Design */
@@ -1081,7 +1205,7 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .logos-grid {
+  .logos-track {
     gap: 2rem;
   }
 

@@ -171,8 +171,22 @@ cursor.classList.add('custom-cursor');
 document.body.appendChild(cursor);
 
 document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
+  // Hide custom cursor when hovering over scrollbars
+  if (e.clientX >= document.documentElement.clientWidth || e.clientY >= document.documentElement.clientHeight) {
+    cursor.style.opacity = '0';
+  } else {
+    cursor.style.opacity = '1';
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  }
+});
+
+document.addEventListener('mouseleave', () => {
+  cursor.style.opacity = '0';
+});
+
+document.addEventListener('mouseenter', () => {
+  cursor.style.opacity = '1';
 });
 
 document.addEventListener('mousedown', () => cursor.classList.add('active'));

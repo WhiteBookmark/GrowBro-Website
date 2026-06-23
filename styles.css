@@ -1130,6 +1130,7 @@ body.video-active {
 .feature-card, .work-item, .benefit-item, .testimonial-card, .pricing-card, .service-category, .mission-card, .value-item, .location-section, .contact-form-wrapper {
   box-shadow: 0 6px 0px rgba(255, 255, 255, 0.15), 0 12px 24px rgba(0, 0, 0, 0.6);
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }

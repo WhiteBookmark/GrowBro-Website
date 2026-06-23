@@ -84,6 +84,7 @@ p {
   color: #888888;
 }
 
+.nav-link:hover::after,
 .nav-link.active::after {
   content: "";
   position: absolute;
@@ -404,6 +405,7 @@ p {
   width: 100%;
   background-color: #000000;
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   padding: 1rem;
@@ -1127,7 +1129,7 @@ body.video-active {
 }
 
 /* 3D Elevated Cards */
-.feature-card, .work-item, .benefit-item, .testimonial-card, .pricing-card, .service-category, .mission-card, .value-item, .location-section, .contact-form-wrapper {
+.feature-card, .work-item, .benefit-item, .testimonial-card, .pricing-card, .service-category, .mission-card, .value-item, .location-section, .contact-form-wrapper, .contact-map {
   box-shadow: 0 6px 0px rgba(255, 255, 255, 0.15), 0 12px 24px rgba(0, 0, 0, 0.6);
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   border-left: 2px solid rgba(255, 255, 255, 0.1);
@@ -1135,7 +1137,7 @@ body.video-active {
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-.feature-card:hover, .work-item:hover, .benefit-item:hover, .testimonial-card:hover, .pricing-card:hover, .service-category:hover, .mission-card:hover, .value-item:hover, .location-section:hover, .contact-form-wrapper:hover {
+.feature-card:hover, .work-item:hover, .benefit-item:hover, .testimonial-card:hover, .pricing-card:hover, .service-category:hover, .mission-card:hover, .value-item:hover, .location-section:hover, .contact-form-wrapper:hover, .contact-map:hover {
   box-shadow: 0 10px 0px rgba(255, 255, 255, 0.25), 0 20px 40px rgba(0, 0, 0, 0.8);
   border-color: #ffffff;
 }

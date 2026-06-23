@@ -110,11 +110,10 @@ document.querySelectorAll('.work-media').forEach(media => {
   const item = media.closest('.work-item');
 
   if (video && overlay) {
-    overlay.addEventListener('click', (e) => {
+    media.addEventListener('click', (e) => {
       e.stopPropagation();
       
       if (expandedItem === item) {
-          video.play();
           return;
       }
 

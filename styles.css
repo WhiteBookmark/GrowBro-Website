@@ -462,6 +462,46 @@ p {
   line-height: 1.8;
 }
 
+/* Video Expand Animation */
+.video-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: grayscale(100%) brightness(0.3);
+  -webkit-backdrop-filter: grayscale(100%) brightness(0.3);
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.video-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.video-active {
+  overflow: hidden;
+}
+
+.work-item-placeholder {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.work-item.video-expanded {
+  cursor: default;
+}
+
+.work-item.video-expanded .work-video {
+  max-width: 100%;
+  max-height: 60vh;
+  transition: all 0.5s ease;
+}
+
 /* Benefits Section */
 .benefits {
   padding: 5rem 0;
@@ -1102,7 +1142,9 @@ p {
 .page-hero h1,
 .about-intro h2,
 .values-section h2,
-.location-section h2 {
+.location-section h2,
+.service-category h2,
+.contact-info h2 {
   position: relative;
   width: fit-content;
   max-width: 100%;
@@ -1112,7 +1154,9 @@ p {
 .page-hero h1,
 .about-intro h2,
 .values-section h2,
-.location-section h2 {
+.location-section h2,
+.service-category h2,
+.contact-info h2 {
   margin-left: auto;
   margin-right: auto;
 }
@@ -1121,7 +1165,9 @@ p {
 .page-hero h1::after,
 .about-intro h2::after,
 .values-section h2::after,
-.location-section h2::after {
+.location-section h2::after,
+.service-category h2::after,
+.contact-info h2::after {
   content: "";
   position: absolute;
   left: -2%;

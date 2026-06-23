@@ -49,13 +49,6 @@ if (typeof VanillaTilt !== 'undefined') {
     scale: 1.05
   });
 
-  VanillaTilt.init(document.querySelectorAll(".work-item"), {
-    max: 10,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.1,
-    scale: 1.02
-  });
 
   VanillaTilt.init(document.querySelectorAll(".benefit-item"), {
     max: 15,

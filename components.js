@@ -23,6 +23,15 @@ class CommonHeader extends HTMLElement {
 		</div>
 	</header>
         `;
+
+        const currentPath = window.location.pathname;
+        const pageName = currentPath.split('/').pop() || 'index.html';
+        const navLinks = this.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === pageName) {
+                link.classList.add('active');
+            }
+        });
     }
 }
 customElements.define('common-header', CommonHeader);

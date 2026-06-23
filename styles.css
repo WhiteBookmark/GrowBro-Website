@@ -79,8 +79,7 @@ p {
   position: relative;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-link:hover {
   color: #888888;
 }
 

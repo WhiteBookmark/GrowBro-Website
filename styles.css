@@ -1146,40 +1146,6 @@ body.video-active {
   border-color: #ffffff;
 }
 
-/* Diagonal Hand-Drawn Underline for Headings */
-.section-title,
-.page-hero h1,
-.about-intro h2 {
-  position: relative;
-  width: fit-content;
-  max-width: 100%;
-  z-index: 1;
-}
-
-.section-title,
-.page-hero h1,
-.about-intro h2 {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.section-title::after,
-.page-hero h1::after,
-.about-intro h2::after {
-  content: "";
-  position: absolute;
-  left: -2%;
-  bottom: -8px;
-  width: 104%;
-  height: 20px;
-  background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20' preserveAspectRatio='none'%3E%3Cpath d='M2,17 Q50,8 98,2' stroke='%23ffffff' stroke-width='4' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") no-repeat center center;
-  background-size: 100% 100%;
-  z-index: -1;
-}
-
-.benefits .section-title::after {
-  display: none;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {

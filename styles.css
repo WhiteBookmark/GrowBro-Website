@@ -1,4 +1,96 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+:root {
+  /* HSL Color System */
+  /* Primary (White theme accent) */
+  --clr-primary-100: hsl(0, 0%, 100%);
+  --clr-primary-200: hsl(0, 0%, 95%);
+  --clr-primary-300: hsl(0, 0%, 90%);
+  --clr-primary-400: hsl(0, 0%, 85%);
+  --clr-primary-500: hsl(0, 0%, 80%);
+  --clr-primary-600: hsl(0, 0%, 70%);
+  --clr-primary-700: hsl(0, 0%, 60%);
+  --clr-primary-800: hsl(0, 0%, 50%);
+  --clr-primary-900: hsl(0, 0%, 40%);
+  --clr-primary-1000: hsl(0, 0%, 30%);
+
+  /* Secondary (Dark / Black) */
+  --clr-secondary-100: hsl(0, 0%, 25%);
+  --clr-secondary-200: hsl(0, 0%, 20%);
+  --clr-secondary-300: hsl(0, 0%, 15%);
+  --clr-secondary-400: hsl(0, 0%, 12%);
+  --clr-secondary-500: hsl(0, 0%, 10%);
+  --clr-secondary-600: hsl(0, 0%, 8%);
+  --clr-secondary-700: hsl(0, 0%, 6%);
+  --clr-secondary-800: hsl(0, 0%, 4%);
+  --clr-secondary-900: hsl(0, 0%, 2%);
+  --clr-secondary-1000: hsl(0, 0%, 0%);
+
+  /* Accent */
+  --clr-accent-100: hsl(0, 0%, 90%);
+  --clr-accent-200: hsl(0, 0%, 80%);
+  --clr-accent-300: hsl(0, 0%, 70%);
+  --clr-accent-400: hsl(0, 0%, 60%);
+  --clr-accent-500: hsl(0, 0%, 50%);
+  --clr-accent-600: hsl(0, 0%, 40%);
+  --clr-accent-700: hsl(0, 0%, 30%);
+  --clr-accent-800: hsl(0, 0%, 20%);
+  --clr-accent-900: hsl(0, 0%, 10%);
+  --clr-accent-1000: hsl(0, 0%, 5%);
+
+  /* Grey */
+  --clr-grey-100: hsl(0, 0%, 95%);
+  --clr-grey-200: hsl(0, 0%, 85%);
+  --clr-grey-300: hsl(0, 0%, 75%);
+  --clr-grey-400: hsl(0, 0%, 65%);
+  --clr-grey-500: hsl(0, 0%, 55%);
+  --clr-grey-600: hsl(0, 0%, 45%);
+  --clr-grey-700: hsl(0, 0%, 35%);
+  --clr-grey-800: hsl(0, 0%, 25%);
+  --clr-grey-900: hsl(0, 0%, 15%);
+  --clr-grey-1000: hsl(0, 0%, 7%);
+
+  /* Semantic Colors: Red, Yellow, Green */
+  --clr-red-100: hsl(0, 100%, 95%);
+  --clr-red-200: hsl(0, 100%, 85%);
+  --clr-red-300: hsl(0, 100%, 75%);
+  --clr-red-400: hsl(0, 100%, 65%);
+  --clr-red-500: hsl(0, 100%, 55%);
+  --clr-red-600: hsl(0, 100%, 45%);
+  --clr-red-700: hsl(0, 100%, 35%);
+  --clr-red-800: hsl(0, 100%, 25%);
+  --clr-red-900: hsl(0, 100%, 15%);
+  --clr-red-1000: hsl(0, 100%, 10%);
+
+  --clr-yellow-100: hsl(45, 100%, 95%);
+  --clr-yellow-200: hsl(45, 100%, 85%);
+  --clr-yellow-300: hsl(45, 100%, 75%);
+  --clr-yellow-400: hsl(45, 100%, 65%);
+  --clr-yellow-500: hsl(45, 100%, 55%);
+  --clr-yellow-600: hsl(45, 100%, 45%);
+  --clr-yellow-700: hsl(45, 100%, 35%);
+  --clr-yellow-800: hsl(45, 100%, 25%);
+  --clr-yellow-900: hsl(45, 100%, 15%);
+  --clr-yellow-1000: hsl(45, 100%, 10%);
+
+  --clr-green-100: hsl(140, 100%, 95%);
+  --clr-green-200: hsl(140, 100%, 85%);
+  --clr-green-300: hsl(140, 100%, 75%);
+  --clr-green-400: hsl(140, 100%, 65%);
+  --clr-green-500: hsl(140, 100%, 55%);
+  --clr-green-600: hsl(140, 100%, 45%);
+  --clr-green-700: hsl(140, 100%, 35%);
+  --clr-green-800: hsl(140, 100%, 25%);
+  --clr-green-900: hsl(140, 100%, 15%);
+  --clr-green-1000: hsl(140, 100%, 10%);
+
+  /* Elevation System (5 levels) */
+  --elevation-1: 0 2px 4px hsla(0, 0%, 0%, 0.2);
+  --elevation-2: 0 4px 8px hsla(0, 0%, 0%, 0.3);
+  --elevation-3: 0 8px 16px hsla(0, 0%, 0%, 0.4);
+  --elevation-4: 0 12px 24px hsla(0, 0%, 0%, 0.5);
+  --elevation-5: 0 20px 40px hsla(0, 0%, 0%, 0.6);
+}
 
 * {
   margin: 0;
@@ -379,93 +471,119 @@ p {
   transform: translateZ(20px);
 }
 
-/* Our Work Section */
-.our-work {
-  padding: 5rem 0;
-  background-color: #000000;
+/* =========================================
+   STATEMENT BANNER SECTION
+========================================= */
+.statement-banner {
+    background-color: var(--clr-primary-100);
+    color: var(--clr-secondary-1000);
+    padding: 6rem 2rem;
+    text-align: left;
+    border-bottom: 2px solid var(--clr-secondary-1000);
 }
 
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 3rem;
+.statement-text {
+    font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0;
 }
 
-.work-item {
-  background-color: #0a0a0a;
-  border: 1px solid #333333;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-  transform-style: preserve-3d;
+/* =========================================
+   FULL-WIDTH VIDEO STACK PORTFOLIO
+========================================= */
+.video-stack-section {
+    width: 100%;
+    background-color: var(--clr-secondary-1000);
+    overflow: hidden;
 }
 
-.work-item:hover {
-  border-color: #ffffff;
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+.video-stack {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4px; /* Tiny black divider between video banners */
 }
 
-.work-media {
-  width: 100%;
-  background-color: #000000;
-  display: flex;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  transform: translateZ(30px);
-  position: relative;
+.video-banner {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Heights match the reference layout proportions */
+    min-height: 450px;
+    max-height: 800px;
+    overflow: hidden;
+    background-color: var(--clr-grey-1000);
+    cursor: pointer;
 }
 
-.play-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 50%;
-  width: 64px;
-  height: 64px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: opacity 0.3s, background 0.3s;
-  z-index: 10;
+.video-banner__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video covers full banner without distortion */
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
+    filter: brightness(0.75); /* Slight darken so text pops */
 }
 
-.play-overlay svg {
-  margin-left: 4px;
+/* Hover effect: slight zoom and brighten */
+.video-banner:hover .video-banner__media {
+    transform: scale(1.03);
+    filter: brightness(0.9);
 }
 
-.play-overlay:hover {
-  background: rgba(255, 255, 255, 0.3);
+/* Text overlay matching brandingthatslaps layout */
+.video-banner__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns text to top-left */
+    align-items: flex-start;
+    pointer-events: none;
+    background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.6) 0%, hsla(0, 0%, 0%, 0) 40%);
+    z-index: 2;
 }
 
-.work-video {
-  width: 100%;
-  max-width: 315px;
-  height: auto;
-  display: block;
-  aspect-ratio: 9 / 16;
-  object-fit: contain;
-  margin: 0 auto;
+.video-banner__client {
+    font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    color: var(--clr-primary-100);
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px hsla(0, 0%, 0%, 0.8);
 }
 
-.work-info {
-  padding: 2rem;
-  transform: translateZ(50px);
+.video-banner__category {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+    font-weight: 500;
+    color: hsla(0, 0%, 100%, 0.8);
+    margin: 0;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.8);
 }
 
-.work-client {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-.work-description {
-  color: #cccccc;
-  line-height: 1.8;
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .video-banner {
+        height: 50vh;
+        min-height: 350px;
+    }
+    .video-banner__overlay {
+        padding: 2rem 1.5rem;
+    }
 }
 
 /* Video Expand Animation */

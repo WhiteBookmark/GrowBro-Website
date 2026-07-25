@@ -65,15 +65,29 @@ document.addEventListener("DOMContentLoaded", () => {
   updateDubaiTime();
   setInterval(updateDubaiTime, 1000);
 
-  // 4. HERO SECTION CUSTOM MOUSE CURSOR ([ VIEW WORK ]) & CLICK TO SCROLL
-  const heroSection = document.getElementById("heroVideoSection");
-  const heroCursor = document.getElementById("heroCursor");
-  if (heroSection && heroCursor) {
-    heroSection.addEventListener("mousemove", (e) => {
-      heroCursor.style.left = `${e.clientX}px`;
-      heroCursor.style.top = `${e.clientY}px`;
+  // 4. UNIFIED FLOATING TEXT-ONLY CURSOR FOR HERO & PORTFOLIO VIDEOS
+  const floatingCursor = document.getElementById("floatingCursor");
+  const interactiveVideoAreas = document.querySelectorAll("#heroVideoSection, .video-banner");
+
+  if (floatingCursor && interactiveVideoAreas.length > 0) {
+    window.addEventListener("mousemove", (e) => {
+      floatingCursor.style.left = `${e.clientX}px`;
+      floatingCursor.style.top = `${e.clientY}px`;
     });
 
+    interactiveVideoAreas.forEach((area) => {
+      area.addEventListener("mouseenter", () => {
+        floatingCursor.classList.add("active");
+      });
+      area.addEventListener("mouseleave", () => {
+        floatingCursor.classList.remove("active");
+      });
+    });
+  }
+
+  // Hero Video click -> Smooth scroll to portfolio
+  const heroSection = document.getElementById("heroVideoSection");
+  if (heroSection) {
     heroSection.addEventListener("click", () => {
       const target = document.querySelector("#work");
       if (target) {

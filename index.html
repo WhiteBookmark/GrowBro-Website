@@ -28,7 +28,10 @@
 	<!-- Header -->
 	<common-header></common-header>
 
-	<!-- FULLSCREEN BACKGROUND VIDEO SECTION WITH CUSTOM CURSOR -->
+	<!-- UNIFIED FLOATING TEXT CURSOR FOR HERO & PORTFOLIO VIDEOS -->
+	<div id="floatingCursor" class="floating-cursor">[ VIEW WORK ]</div>
+
+	<!-- FULLSCREEN BACKGROUND VIDEO SECTION -->
 	<section class="fullscreen-video" id="heroVideoSection">
 		<video class="fullscreen-video__media" autoplay loop muted playsinline
 			poster="assets/InternationalFashionRunwayThumbnail.jpg">
@@ -36,8 +39,6 @@
 				type="video/mp4" />
 			Your browser does not support the video tag.
 		</video>
-		<!-- Custom Floating Mouse Cursor -->
-		<div class="custom-cursor" id="heroCursor">[ VIEW WORK ]</div>
 	</section>
 
 	<!-- Features Section (Temporarily Hidden) -->
@@ -97,14 +98,14 @@
 
 			<!-- Portfolio Item 1 -->
 			<div class="video-banner" data-video-item data-video-url="assets/InternationalFashionRunway.mp4">
-				<video class="video-banner__media" loop muted playsinline poster="assets/InternationalFashionRunwayThumbnail.jpg">
+				<video class="video-banner__media" loop muted playsinline
+					poster="assets/InternationalFashionRunwayThumbnail.jpg">
 					<source src="assets/InternationalFashionRunway.mp4" type="video/mp4" />
 				</video>
 				<div class="video-banner__overlay">
 					<h3 class="video-banner__client">INTERNATIONAL FASHION RUNWAY</h3>
 					<p class="video-banner__category">Event Coverage & Cinematic Highlights</p>
 				</div>
-				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 			<!-- Portfolio Item 2 -->
@@ -116,7 +117,6 @@
 					<h3 class="video-banner__client">MAIDAN APP</h3>
 					<p class="video-banner__category">Content Strategy & Sports Platform Production</p>
 				</div>
-				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 			<!-- Portfolio Item 3 -->
@@ -128,7 +128,6 @@
 					<h3 class="video-banner__client">MAYA BEAUTY SALON</h3>
 					<p class="video-banner__category">Social Media Brand Presence & Reels</p>
 				</div>
-				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 			<!-- Portfolio Item 4 -->
@@ -140,7 +139,6 @@
 					<h3 class="video-banner__client">TEATOPIA BLISS</h3>
 					<p class="video-banner__category">Fast-Paced F&B Content Scaling</p>
 				</div>
-				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 			<!-- Portfolio Item 5 -->
@@ -152,7 +150,6 @@
 					<h3 class="video-banner__client">TOPSPIN</h3>
 					<p class="video-banner__category">High-Energy Instagram Reels</p>
 				</div>
-				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 			<!-- Portfolio Item 6 -->
@@ -164,7 +161,6 @@
 					<h3 class="video-banner__client">THE MYRIAD</h3>
 					<p class="video-banner__category">Student Hub Community & Culture Building</p>
 				</div>
-				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 		</div>
@@ -174,9 +170,9 @@
 	<section class="slaps-statement-section">
 		<div class="container statement-flex-container">
 			<h2 class="slaps-statement-text">
-				WORKING ACROSS THE INTERSECTION OF<br>
-				VIDEO CONTENT, WEB DESIGN AND TECH<br>
-				OUR TEAM SPECIALIZES IN CREATIVE<br>
+				WORKING ACROSS THE INTERSECTION OF
+				VIDEO CONTENT, WEB DESIGN AND TECH
+				OUR TEAM SPECIALIZES IN CREATIVE
 				THINKING, STRATEGY AND DIRECTION
 			</h2>
 		</div>
@@ -264,13 +260,15 @@
 		<div class="container">
 			<div class="logos-grid">
 				<div class="logo-grid-item"><img src="images/AfroFitLogo.jpg" alt="AfroFit" /></div>
-				<div class="logo-grid-item"><img src="images/InternationalFashionRunwayLogo.jpg" alt="International Fashion Runway" /></div>
+				<div class="logo-grid-item"><img src="images/InternationalFashionRunwayLogo.jpg"
+						alt="International Fashion Runway" /></div>
 				<div class="logo-grid-item"><img src="images/JohnzCafeLogo.jpg" alt="Johnz Cafe" /></div>
 				<div class="logo-grid-item"><img src="images/MaidanWaliLogo.jpg" alt="Maidan App" /></div>
 				<div class="logo-grid-item"><img src="images/MDXIconShowLogo.jpg" alt="MDX Icon Show" /></div>
 				<div class="logo-grid-item"><img src="images/TeaTopiaBlissLogo.jpg" alt="TeaTopia Bliss" /></div>
 				<div class="logo-grid-item"><img src="images/TheMyriadLogo.jpg" alt="The Myriad" /></div>
-				<div class="logo-grid-item"><img src="images/MarinaDentalClinicLogo.jpg" alt="Marina Dental Clinic" /></div>
+				<div class="logo-grid-item"><img src="images/MarinaDentalClinicLogo.jpg" alt="Marina Dental Clinic" />
+				</div>
 				<div class="logo-grid-item"><img src="images/TopSpinLogo.jpg" alt="TopSpin" /></div>
 				<div class="logo-grid-item"><img src="images/MayaSalon.jpg" alt="Maya Salon" /></div>
 				<div class="logo-grid-item"><img src="images/WavesGlobalEvents.jpg" alt="Waves Global Events" /></div>

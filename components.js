@@ -19,7 +19,6 @@ class CommonHeader extends HTMLElement {
 		<div class="menu-links-wrapper">
 			<a href="about.html" class="menu-link">ABOUT</a>
 			<a href="index.html#work" class="menu-link menu-link-close">WORK</a>
-			<a href="services.html" class="menu-link">SERVICES</a>
 			<a href="contact.html" class="menu-link">CONTACT</a>
 		</div>
 	</nav>

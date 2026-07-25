@@ -65,11 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
   updateDubaiTime();
   setInterval(updateDubaiTime, 1000);
 
-  // 4. SMOOTH SCROLL FOR HERO [ VIEW WORK ] CLICK
-  const viewWorkBtn = document.querySelector(".view-work-overlay");
-  if (viewWorkBtn) {
-    viewWorkBtn.addEventListener("click", (e) => {
-      e.preventDefault();
+  // 4. HERO SECTION CUSTOM MOUSE CURSOR ([ VIEW WORK ]) & CLICK TO SCROLL
+  const heroSection = document.getElementById("heroVideoSection");
+  const heroCursor = document.getElementById("heroCursor");
+  if (heroSection && heroCursor) {
+    heroSection.addEventListener("mousemove", (e) => {
+      heroCursor.style.left = `${e.clientX}px`;
+      heroCursor.style.top = `${e.clientY}px`;
+    });
+
+    heroSection.addEventListener("click", () => {
       const target = document.querySelector("#work");
       if (target) {
         target.scrollIntoView({ behavior: "smooth" });
@@ -106,14 +111,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Toggle mute/sound on video banner click
+  // 6. PORTFOLIO VIDEO CLICK -> OPEN IN NEW TAB
   document.querySelectorAll(".video-banner").forEach(banner => {
-    const video = banner.querySelector(".video-banner__media");
-    if (video) {
-      banner.addEventListener("click", () => {
-        video.muted = !video.muted;
-      });
-    }
+    banner.addEventListener("click", () => {
+      const videoUrl = banner.getAttribute("data-video-url") || banner.querySelector("source")?.getAttribute("src");
+      if (videoUrl) {
+        window.open(videoUrl, "_blank", "noopener,noreferrer");
+      }
+    });
   });
 });
 
@@ -152,10 +157,10 @@ if (typeof VanillaTilt !== 'undefined') {
     scale: 1.05
   });
 
-  VanillaTilt.init(document.querySelectorAll(".logo-item"), {
-    max: 20,
+  VanillaTilt.init(document.querySelectorAll(".logo-grid-item"), {
+    max: 15,
     speed: 400,
-    scale: 1.1
+    scale: 1.05
   });
 }
 

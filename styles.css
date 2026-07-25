@@ -1476,40 +1476,78 @@ body.video-active {
     pointer-events: none;
 }
 
-/* Hero Video [ VIEW WORK ] Hover Overlay */
-.view-work-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    z-index: 10;
-    background-color: hsla(0, 0%, 0%, 0);
-    transition: background-color 0.4s ease;
+/* Fullscreen Hero Video & Floating Custom Cursor */
+.fullscreen-video {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: hsl(0, 0%, 0%);
+  cursor: none;
 }
 
-.view-work-overlay span {
-    font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: hsl(0, 0%, 100%);
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+.fullscreen-video__media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
 }
 
-.view-work-overlay:hover {
-    background-color: hsla(0, 0%, 0%, 0.3);
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: hsl(0, 0%, 100%);
+  background: hsla(0, 0%, 0%, 0.75);
+  padding: 0.6rem 1.4rem;
+  border: 1px solid hsla(0, 0%, 100%, 0.4);
+  border-radius: 50px;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  opacity: 0;
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
 }
 
-.view-work-overlay:hover span {
-    opacity: 1;
-    transform: translateY(0);
+.fullscreen-video:hover .custom-cursor {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* Portfolio Hover Badge */
+.video-hover-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  z-index: 5;
+  background: hsla(0, 0%, 0%, 0.85);
+  color: hsl(0, 0%, 100%);
+  padding: 0.8rem 2rem;
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  border-radius: 50px;
+  font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+}
+
+.video-banner:hover .video-hover-badge {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 /* Custom Scrollbar (Black and White Theme) */
@@ -1533,29 +1571,85 @@ body.video-active {
 }
 
 /* =========================================
-   SLAPS STATEMENT SECTION (Image 1 Match)
+   SLAPS STATEMENT SECTION (Left-Aligned Text, Centered Block)
 ========================================= */
 .slaps-statement-section {
-    background-color: hsl(0, 0%, 100%);
-    color: hsl(0, 0%, 0%);
-    padding: 8rem 2rem;
-    text-align: center;
-    border-bottom: 2px solid hsl(0, 0%, 0%);
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
+  padding: 8rem 2rem;
+  border-bottom: 2px solid hsl(0, 0%, 0%);
+}
+
+.statement-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .slaps-statement-text {
-    font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
-    font-size: clamp(1.8rem, 5.5vw, 4.5rem);
-    font-weight: 900;
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-    margin: 0 auto;
-    max-width: 1400px;
+  font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
+  font-size: clamp(1.8rem, 5.5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 0;
+  max-width: 1400px;
 }
 
 /* =========================================
-   NEW SLAPS FOOTER (Image 2 Match)
+   STATIC CLIENT LOGOS GRID (Monochrome Black & White Theme)
+========================================= */
+.client-logos-grid-section {
+  background-color: hsl(0, 0%, 100%);
+  padding: 6rem 2rem;
+  border-bottom: 2px solid hsl(0, 0%, 0%);
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 3.5rem 2.5rem;
+  align-items: center;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo-grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 85px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-grid-item:hover {
+  transform: scale(1.08);
+  opacity: 0.7;
+}
+
+.logo-grid-item img {
+  max-width: 140px;
+  max-height: 65px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) contrast(200%) brightness(0);
+}
+
+@media (max-width: 768px) {
+  .logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+}
+
+/* =========================================
+   NEW SLAPS FOOTER (Watermark Sized to Fit Perfectly)
 ========================================= */
 .slaps-footer {
     position: relative;
@@ -1570,23 +1664,25 @@ body.video-active {
     border-top: 1px solid hsl(0, 0%, 13%);
 }
 
-/* Massive Watermark in Background */
+/* Watermark resized so full text fits inside footer without cutting off */
 .footer-watermark {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
-    font-size: clamp(6rem, 24vw, 26rem);
+    font-size: clamp(3rem, 13vw, 14.5rem);
     font-weight: 900;
     color: hsla(0, 0%, 100%, 0.12);
-    letter-spacing: -0.04em;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
     pointer-events: none;
     user-select: none;
     white-space: nowrap;
-    filter: blur(2px);
+    filter: blur(1px);
     z-index: 1;
+    width: 95%;
+    text-align: center;
 }
 
 .footer-content {
@@ -1736,6 +1832,6 @@ body.video-active {
         align-items: flex-start;
     }
     .footer-watermark {
-        font-size: clamp(4rem, 28vw, 12rem);
+        font-size: clamp(2.2rem, 13vw, 5rem);
     }
 }

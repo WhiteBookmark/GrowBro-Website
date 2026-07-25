@@ -28,7 +28,7 @@
 	<!-- Header -->
 	<common-header></common-header>
 
-	<!-- FULLSCREEN BACKGROUND VIDEO SECTION -->
+	<!-- FULLSCREEN BACKGROUND VIDEO SECTION WITH CUSTOM CURSOR -->
 	<section class="fullscreen-video" id="heroVideoSection">
 		<video class="fullscreen-video__media" autoplay loop muted playsinline
 			poster="assets/InternationalFashionRunwayThumbnail.jpg">
@@ -36,10 +36,8 @@
 				type="video/mp4" />
 			Your browser does not support the video tag.
 		</video>
-		<!-- Clickable Hover Overlay -->
-		<a href="#work" class="view-work-overlay">
-			<span>[ VIEW WORK ]</span>
-		</a>
+		<!-- Custom Floating Mouse Cursor -->
+		<div class="custom-cursor" id="heroCursor">[ VIEW WORK ]</div>
 	</section>
 
 	<!-- Features Section (Temporarily Hidden) -->
@@ -89,7 +87,7 @@
 	<!-- BOLD TYPOGRAPHY STATEMENT BANNER -->
 	<section class="statement-banner">
 		<div class="container">
-			<h2 class="statement-text">—— NOTHING BASIC.<br>ONLY CONTENT THAT CONVERTS.</h2>
+			<h2 class="statement-text">NOTHING BASIC.<br>ONLY CONTENT THAT CONVERTS.</h2>
 		</div>
 	</section>
 
@@ -98,7 +96,7 @@
 		<div class="video-stack">
 
 			<!-- Portfolio Item 1 -->
-			<div class="video-banner" data-video-item>
+			<div class="video-banner" data-video-item data-video-url="assets/InternationalFashionRunway.mp4">
 				<video class="video-banner__media" loop muted playsinline poster="assets/InternationalFashionRunwayThumbnail.jpg">
 					<source src="assets/InternationalFashionRunway.mp4" type="video/mp4" />
 				</video>
@@ -106,10 +104,11 @@
 					<h3 class="video-banner__client">INTERNATIONAL FASHION RUNWAY</h3>
 					<p class="video-banner__category">Event Coverage & Cinematic Highlights</p>
 				</div>
+				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 			<!-- Portfolio Item 2 -->
-			<div class="video-banner" data-video-item>
+			<div class="video-banner" data-video-item data-video-url="assets/MaidanWaliVideo.mp4">
 				<video class="video-banner__media" loop muted playsinline poster="assets/MaidanThumbnail.jpg">
 					<source src="assets/MaidanWaliVideo.mp4" type="video/mp4" />
 				</video>
@@ -117,10 +116,11 @@
 					<h3 class="video-banner__client">MAIDAN APP</h3>
 					<p class="video-banner__category">Content Strategy & Sports Platform Production</p>
 				</div>
+				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 			<!-- Portfolio Item 3 -->
-			<div class="video-banner" data-video-item>
+			<div class="video-banner" data-video-item data-video-url="assets/MayaSalon.mp4">
 				<video class="video-banner__media" loop muted playsinline poster="assets/MayaSalonThumbnail.jpg">
 					<source src="assets/MayaSalon.mp4" type="video/mp4" />
 				</video>
@@ -128,10 +128,11 @@
 					<h3 class="video-banner__client">MAYA BEAUTY SALON</h3>
 					<p class="video-banner__category">Social Media Brand Presence & Reels</p>
 				</div>
+				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 			<!-- Portfolio Item 4 -->
-			<div class="video-banner" data-video-item>
+			<div class="video-banner" data-video-item data-video-url="assets/TeaTopiaVideo.mp4">
 				<video class="video-banner__media" loop muted playsinline poster="assets/TeaTopiaThumbnail.jpg">
 					<source src="assets/TeaTopiaVideo.mp4" type="video/mp4" />
 				</video>
@@ -139,10 +140,11 @@
 					<h3 class="video-banner__client">TEATOPIA BLISS</h3>
 					<p class="video-banner__category">Fast-Paced F&B Content Scaling</p>
 				</div>
+				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 			<!-- Portfolio Item 5 -->
-			<div class="video-banner" data-video-item>
+			<div class="video-banner" data-video-item data-video-url="assets/TopSpinVideo.mp4">
 				<video class="video-banner__media" loop muted playsinline poster="assets/TopSpinThumbnail.jpeg">
 					<source src="assets/TopSpinVideo.mp4" type="video/mp4" />
 				</video>
@@ -150,10 +152,11 @@
 					<h3 class="video-banner__client">TOPSPIN</h3>
 					<p class="video-banner__category">High-Energy Instagram Reels</p>
 				</div>
+				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 			<!-- Portfolio Item 6 -->
-			<div class="video-banner" data-video-item>
+			<div class="video-banner" data-video-item data-video-url="assets/TheMyriad.mp4">
 				<video class="video-banner__media" loop muted playsinline poster="assets/TheMyriad.jpeg">
 					<source src="assets/TheMyriad.mp4" type="video/mp4" />
 				</video>
@@ -161,14 +164,15 @@
 					<h3 class="video-banner__client">THE MYRIAD</h3>
 					<p class="video-banner__category">Student Hub Community & Culture Building</p>
 				</div>
+				<div class="video-hover-badge"><span>[ VIEW WORK ]</span></div>
 			</div>
 
 		</div>
 	</section>
 
-	<!-- NEW BOLD TEXT STATEMENT SECTION (Matches Image 1) -->
+	<!-- STATEMENT SECTION (Centered Block with Left-Aligned Text) -->
 	<section class="slaps-statement-section">
-		<div class="container">
+		<div class="container statement-flex-container">
 			<h2 class="slaps-statement-text">
 				WORKING ACROSS THE INTERSECTION OF<br>
 				VIDEO CONTENT, WEB DESIGN AND TECH<br>
@@ -255,91 +259,23 @@
 		</div>
 	</section>
 
-	<!-- Client Logos Section -->
-	<section class="client-logos">
-		<div class="container" style="overflow: hidden;">
-			<div class="logos-track">
-				<div class="logo-item">
-					<img src="images/AfroFitLogo.jpg" alt="AfroFit" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/InternationalFashionRunwayLogo.jpg" alt="International Fashion Runway"
-						class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/JohnzCafeLogo.jpg" alt="Johnz Cafe" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/MaidanWaliLogo.jpg" alt="Maidan App" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/MDXIconShowLogo.jpg" alt="MDX Icon Show" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/TeaTopiaBlissLogo.jpg" alt="TeaTopia Bliss" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/TheMyriadLogo.jpg" alt="The Myriad" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/MarinaDentalClinicLogo.jpg" alt="Marina Dental Clinic" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/TopSpinLogo.jpg" alt="TopSpin" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/MayaSalon.jpg" alt="Maya Salon" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/WavesGlobalEvents.jpg" alt="Waves Global Events" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/TennisCoachDubai.jpg" alt="Tennis Coach Dubai" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/ArmaniPriveLogo.jpeg" alt="Armani PrivÃ©" class="client-logo" />
-				</div>
-				<!-- Duplicated for continuous marquee scroll -->
-				<div class="logo-item">
-					<img src="images/AfroFitLogo.jpg" alt="AfroFit" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/InternationalFashionRunwayLogo.jpg" alt="International Fashion Runway"
-						class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/JohnzCafeLogo.jpg" alt="Johnz Cafe" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/MaidanWaliLogo.jpg" alt="Maidan App" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/MDXIconShowLogo.jpg" alt="MDX Icon Show" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/TeaTopiaBlissLogo.jpg" alt="TeaTopia Bliss" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/TheMyriadLogo.jpg" alt="The Myriad" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/MarinaDentalClinicLogo.jpg" alt="Marina Dental Clinic" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/TopSpinLogo.jpg" alt="TopSpin" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/MayaSalon.jpg" alt="Maya Salon" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/WavesGlobalEvents.jpg" alt="Waves Global Events" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/TennisCoachDubai.jpg" alt="Tennis Coach Dubai" class="client-logo" />
-				</div>
-				<div class="logo-item">
-					<img src="images/ArmaniPriveLogo.jpeg" alt="Armani PrivÃ©" class="client-logo" />
-				</div>
+	<!-- STATIC CLIENT LOGOS GRID (Monochrome Black & White Theme) -->
+	<section class="client-logos-grid-section">
+		<div class="container">
+			<div class="logos-grid">
+				<div class="logo-grid-item"><img src="images/AfroFitLogo.jpg" alt="AfroFit" /></div>
+				<div class="logo-grid-item"><img src="images/InternationalFashionRunwayLogo.jpg" alt="International Fashion Runway" /></div>
+				<div class="logo-grid-item"><img src="images/JohnzCafeLogo.jpg" alt="Johnz Cafe" /></div>
+				<div class="logo-grid-item"><img src="images/MaidanWaliLogo.jpg" alt="Maidan App" /></div>
+				<div class="logo-grid-item"><img src="images/MDXIconShowLogo.jpg" alt="MDX Icon Show" /></div>
+				<div class="logo-grid-item"><img src="images/TeaTopiaBlissLogo.jpg" alt="TeaTopia Bliss" /></div>
+				<div class="logo-grid-item"><img src="images/TheMyriadLogo.jpg" alt="The Myriad" /></div>
+				<div class="logo-grid-item"><img src="images/MarinaDentalClinicLogo.jpg" alt="Marina Dental Clinic" /></div>
+				<div class="logo-grid-item"><img src="images/TopSpinLogo.jpg" alt="TopSpin" /></div>
+				<div class="logo-grid-item"><img src="images/MayaSalon.jpg" alt="Maya Salon" /></div>
+				<div class="logo-grid-item"><img src="images/WavesGlobalEvents.jpg" alt="Waves Global Events" /></div>
+				<div class="logo-grid-item"><img src="images/TennisCoachDubai.jpg" alt="Tennis Coach Dubai" /></div>
+				<div class="logo-grid-item"><img src="images/ArmaniPriveLogo.jpeg" alt="Armani Privé" /></div>
 			</div>
 		</div>
 	</section>

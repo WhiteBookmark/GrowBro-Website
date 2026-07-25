@@ -1,43 +1,138 @@
-// Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById("mobileMenuBtn")
-const nav = document.querySelector(".nav")
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. FULLSCREEN MENU TOGGLE ([ MENU ] <-> [ CLOSE ])
+  const menuBtn = document.getElementById("menuToggleBtn");
+  const fullscreenMenu = document.getElementById("fullscreenMenu");
+  let isMenuOpen = false;
 
-if (mobileMenuBtn) {
-  mobileMenuBtn.addEventListener("click", () => {
-    nav.classList.toggle("active")
-    mobileMenuBtn.classList.toggle("active")
-  })
-}
+  if (menuBtn && fullscreenMenu) {
+    menuBtn.addEventListener("click", () => {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        fullscreenMenu.classList.add("active");
+        menuBtn.textContent = "[ CLOSE ]";
+        document.body.style.overflow = "hidden"; // Disable background scrolling
+      } else {
+        fullscreenMenu.classList.remove("active");
+        menuBtn.textContent = "[ MENU ]";
+        document.body.style.overflow = ""; // Enable background scrolling
+      }
+    });
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault()
-    const target = document.querySelector(this.getAttribute("href"))
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      })
-    }
-  })
-})
-
-// Add scroll effect to header
-let lastScroll = 0
-const header = document.querySelector(".header")
-
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset
-
-  if (currentScroll > 100) {
-    header.style.boxShadow = "0 2px 10px rgba(255, 255, 255, 0.1)"
-  } else {
-    header.style.boxShadow = "none"
+    // Close menu when clicking internal anchor links (like WORK)
+    document.querySelectorAll(".menu-link-close").forEach(link => {
+      link.addEventListener("click", () => {
+        isMenuOpen = false;
+        fullscreenMenu.classList.remove("active");
+        menuBtn.textContent = "[ MENU ]";
+        document.body.style.overflow = "";
+      });
+    });
   }
 
-  lastScroll = currentScroll
-})
+  // 2. DYNAMIC SCROLL PERCENTAGE INDICATOR (SCROLL XX%)
+  const scrollIndicator = document.getElementById("scrollIndicator");
+  const updateScrollPercent = () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercent = scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0;
+
+    if (scrollIndicator) {
+      scrollIndicator.textContent = `(SCROLL ${scrollPercent}%)`;
+    }
+  };
+  window.addEventListener("scroll", updateScrollPercent);
+  updateScrollPercent();
+
+  // 3. LIVE DUBAI CLOCK (AM/PM FORMAT)
+  const dubaiClock = document.getElementById("dubaiClock");
+  function updateDubaiTime() {
+    if (!dubaiClock) return;
+
+    const now = new Date();
+    // Format time strictly to Asia/Dubai timezone in 12-hour AM/PM format
+    const options = {
+      timeZone: "Asia/Dubai",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true
+    };
+
+    const timeString = new Intl.DateTimeFormat("en-US", options).format(now);
+    dubaiClock.textContent = `DUBAI (${timeString})`;
+  }
+
+  // Initial call and set interval to update every second
+  updateDubaiTime();
+  setInterval(updateDubaiTime, 1000);
+
+  // 4. SMOOTH SCROLL FOR HERO [ VIEW WORK ] CLICK
+  const viewWorkBtn = document.querySelector(".view-work-overlay");
+  if (viewWorkBtn) {
+    viewWorkBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.querySelector("#work");
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+
+  // 5. SCROLL-TRIGGERED AUTOPLAY FOR PORTFOLIO
+  const videoBanners = document.querySelectorAll(".video-banner__media");
+
+  if ("IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+
+        if (entry.isIntersecting) {
+          video.play().catch(err => {
+            console.log("Autoplay blocked or video loading:", err);
+          });
+        } else {
+          video.pause();
+        }
+      });
+    }, {
+      threshold: 0.25
+    });
+
+    videoBanners.forEach(video => {
+      videoObserver.observe(video);
+    });
+  } else {
+    videoBanners.forEach(video => {
+      video.play().catch(() => { });
+    });
+  }
+
+  // Toggle mute/sound on video banner click
+  document.querySelectorAll(".video-banner").forEach(banner => {
+    const video = banner.querySelector(".video-banner__media");
+    if (video) {
+      banner.addEventListener("click", () => {
+        video.muted = !video.muted;
+      });
+    }
+  });
+});
+
+// Smooth scroll for general anchor links
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    const href = this.getAttribute("href");
+    if (href && href !== "#") {
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+  });
+});
 
 // Initialize 3D Tilt Effects
 if (typeof VanillaTilt !== 'undefined') {
@@ -48,7 +143,6 @@ if (typeof VanillaTilt !== 'undefined') {
     "max-glare": 0.15,
     scale: 1.05
   });
-
 
   VanillaTilt.init(document.querySelectorAll(".benefit-item"), {
     max: 15,
@@ -65,77 +159,4 @@ if (typeof VanillaTilt !== 'undefined') {
   });
 }
 
-console.log("[v0] GrowBro website initialized")
-
-// ==========================================
-// SCROLL-TRIGGERED AUTOPLAY FOR PORTFOLIO
-// ==========================================
-document.addEventListener("DOMContentLoaded", () => {
-  const videoBanners = document.querySelectorAll(".video-banner__media");
-
-  if ("IntersectionObserver" in window) {
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const video = entry.target;
-
-        if (entry.isIntersecting) {
-          // Play video when at least 25% is visible in viewport
-          video.play().catch(err => {
-            console.log("Autoplay blocked or video loading:", err);
-          });
-        } else {
-          // Pause video when scrolled out of view to save CPU/battery
-          video.pause();
-        }
-      });
-    }, {
-      threshold: 0.25 // Triggers when 25% of the video banner is visible
-    });
-
-    videoBanners.forEach(video => {
-      videoObserver.observe(video);
-    });
-  } else {
-    // Fallback for older browsers: play all videos immediately
-    videoBanners.forEach(video => {
-      video.play().catch(() => {});
-    });
-  }
-
-  // Toggle mute/sound on video banner click
-  document.querySelectorAll(".video-banner").forEach(banner => {
-    const video = banner.querySelector(".video-banner__media");
-    if (video) {
-      banner.addEventListener("click", () => {
-        video.muted = !video.muted;
-      });
-    }
-  });
-});
-
-// Custom Cursor Logic
-const cursor = document.createElement('div');
-cursor.classList.add('custom-cursor');
-document.body.appendChild(cursor);
-
-document.addEventListener('mousemove', (e) => {
-  // Hide custom cursor when hovering over scrollbars
-  if (e.clientX >= document.documentElement.clientWidth || e.clientY >= document.documentElement.clientHeight) {
-    cursor.style.opacity = '0';
-  } else {
-    cursor.style.opacity = '1';
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  }
-});
-
-document.addEventListener('mouseleave', () => {
-  cursor.style.opacity = '0';
-});
-
-document.addEventListener('mouseenter', () => {
-  cursor.style.opacity = '1';
-});
-
-document.addEventListener('mousedown', () => cursor.classList.add('active'));
-document.addEventListener('mouseup', () => cursor.classList.remove('active'));
+console.log("[v0] GrowBro website initialized");

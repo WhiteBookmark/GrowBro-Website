@@ -1,37 +1,34 @@
 class CommonHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-	<header class="header">
-		<div class="container">
-			<div class="nav-wrapper">
-				<div class="logo">
-					<a href="index.html">
-						<h1>GrowBro</h1>
-					</a>
-				</div>
-				<nav class="nav">
-					<a href="about.html" class="nav-link">About Us</a>
-					<a href="services.html" class="nav-link">Services</a>
-					<a href="contact.html" class="nav-link">Contact</a>
-				</nav>
-				<button class="mobile-menu-btn" id="mobileMenuBtn">
-					<span></span>
-					<span></span>
-					<span></span>
-				</button>
-			</div>
+	<!-- 1. MINIMALIST FIXED HEADER -->
+	<header class="minimal-header">
+		<div class="header-left">
+			<a href="index.html" class="brand-logo">GrowBro.</a>
+		</div>
+		<div class="header-center">
+			<button id="menuToggleBtn" class="menu-toggle">[ MENU ]</button>
+		</div>
+		<div class="header-right">
+			<span id="scrollIndicator">(SCROLL 0%)</span>
 		</div>
 	</header>
-        `;
 
-        const currentPath = window.location.pathname;
-        const pageName = currentPath.split('/').pop() || 'index.html';
-        const navLinks = this.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === pageName) {
-                link.classList.add('active');
-            }
-        });
+	<!-- 2. FULLSCREEN DROPDOWN MENU OVERLAY -->
+	<nav id="fullscreenMenu" class="fullscreen-menu">
+		<div class="menu-links-wrapper">
+			<a href="about.html" class="menu-link">ABOUT</a>
+			<a href="index.html#work" class="menu-link menu-link-close">WORK</a>
+			<a href="services.html" class="menu-link">SERVICES</a>
+			<a href="contact.html" class="menu-link">CONTACT</a>
+		</div>
+	</nav>
+
+	<!-- 3. FIXED BOTTOM-LEFT DUBAI TIME CLOCK -->
+	<div class="fixed-clock">
+		<span id="dubaiClock">DUBAI (--:-- --)</span>
+	</div>
+        `;
     }
 }
 customElements.define('common-header', CommonHeader);

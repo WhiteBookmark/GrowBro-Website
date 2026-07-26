@@ -66,14 +66,14 @@ class CommonFooter extends HTMLElement {
                 <div class="footer-bottom">
                     <div class="footer-bottom__left">
                         <p class="office-location">
-                            DXB | MYRIAD, ACADEMIC CITY, DUBAI, UAE<br>
-                            LDN | COMING SOON
+                            Dubai - London - Islamabad <br>
+                            WEST AVENUE, 1808, DUBAI MARINA, DUBAI, UAE<br>
                         </p>
                     </div>
                     <div class="footer-bottom__right">
                         <div class="social-links">
                             <a href="https://www.instagram.com/growbro.social/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
-                            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+                            <a href="https://www.linkedin.com/company/growbro/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
                         </div>
                         <p class="copyright-text">&copy; 2026 GROWBRO. ALL RIGHTS RESERVED.</p>
                     </div>

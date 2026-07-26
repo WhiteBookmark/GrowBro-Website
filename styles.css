@@ -1656,7 +1656,7 @@ body.video-active {
     font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
     font-size: clamp(3rem, 13vw, 14.5rem);
     font-weight: 900;
-    color: hsla(0, 0%, 100%, 0.12);
+    color: hsl(0, 0%, 100%);
     letter-spacing: -0.02em;
     text-transform: uppercase;
     pointer-events: none;
@@ -1756,6 +1756,14 @@ body.video-active {
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 6rem;
+}
+
+.footer-bottom__left {
+    text-align: left;
+}
+
+.office-location {
+    text-align: left;
 }
 
 .office-location,

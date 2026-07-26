@@ -1575,12 +1575,13 @@ body.video-active {
 }
 
 /* =========================================
-   STATIC CLIENT LOGOS GRID (Monochrome Black & White Theme)
+   STATIC CLIENT LOGOS GRID (Solid Black Theme)
 ========================================= */
 .client-logos-grid-section {
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(0, 0%, 0%);
   padding: 6rem 2rem;
-  border-bottom: 2px solid hsl(0, 0%, 0%);
+  border-bottom: 1px solid hsl(0, 0%, 15%);
+  border-top: 1px solid hsl(0, 0%, 15%);
 }
 
 .logos-grid {
@@ -1607,14 +1608,20 @@ body.video-active {
   opacity: 0.7;
 }
 
+/* Default rule for light-on-dark JPGs: Screen/Lighten blend mode makes black JPG backgrounds invisible */
 .logo-grid-item img {
   max-width: 140px;
   max-height: 65px;
   width: auto;
   height: auto;
   object-fit: contain;
-  mix-blend-mode: multiply;
+  mix-blend-mode: lighten;
   filter: grayscale(100%) contrast(150%);
+}
+
+/* Utility rule for dark-on-light JPGs: Inverts colors first so they turn into white-on-black */
+.logo-grid-item img.invert-logo {
+  filter: invert(1) grayscale(100%) contrast(150%);
 }
 
 @media (max-width: 768px) {

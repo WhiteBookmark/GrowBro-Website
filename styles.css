@@ -905,6 +905,7 @@ body.video-active {
 .value-item p {
   color: #cccccc;
   line-height: 1.8;
+  text-align: left;
 }
 
 /* Location Section */

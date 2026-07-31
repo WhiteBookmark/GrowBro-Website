@@ -1866,3 +1866,175 @@ body.video-active {
     font-size: clamp(2.2rem, 13vw, 5rem);
   }
 }
+
+/* =========================================
+   TEAM SLIDER SECTION
+========================================= */
+.team-section {
+    margin-bottom: 5rem;
+    width: 100%;
+    overflow: hidden; /* Prevents page horizontal scroll */
+}
+
+.team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.team-header h2 {
+    font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin: 0;
+    color: hsl(0, 0%, 100%);
+}
+
+.team-nav-arrows {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.team-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid hsl(0, 0%, 20%);
+    background-color: transparent;
+    color: hsl(0, 0%, 100%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.team-arrow:hover {
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 0%);
+    border-color: hsl(0, 0%, 100%);
+    transform: scale(1.05);
+}
+
+.team-arrow:active {
+    transform: scale(0.95);
+}
+
+/* Slider Track & Container */
+.team-slider-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    user-select: none;
+    cursor: grab;
+    padding-bottom: 1.5rem; /* Space for shadow/hover lift */
+    /* Hide default scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.team-slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+.team-slider-container.active-drag {
+    cursor: grabbing;
+    scroll-behavior: auto; /* Instant scroll during dragging */
+}
+
+.team-track {
+    display: flex;
+    gap: 1.25rem;
+    width: max-content;
+}
+
+/* Individual Team Card */
+.team-card {
+    position: relative;
+    width: 290px;
+    height: 440px;
+    border-radius: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px hsla(0, 0%, 0%, 0.3);
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px hsla(0, 0%, 0%, 0.5);
+}
+
+/* Background Color Utilities matching the photo using HSL */
+.bg-cyan  { background-color: hsl(190, 52%, 58%); }
+.bg-pink  { background-color: hsl(328, 57%, 70%); }
+.bg-blue  { background-color: hsl(200, 55%, 60%); }
+.bg-green { background-color: hsl(130, 49%, 43%); }
+.bg-rose  { background-color: hsl(338, 59%, 65%); }
+
+/* Portrait Image */
+.team-card__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-card__img {
+    transform: scale(1.04);
+}
+
+/* Bottom Typography Overlay */
+.team-card__overlay {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem 1.25rem;
+    background: linear-gradient(0deg, hsla(0, 0%, 0%, 0.4) 0%, hsla(0, 0%, 0%, 0) 50%);
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.team-card__name {
+    font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: hsl(0, 0%, 100%);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.2rem 0;
+    text-transform: lowercase; /* Forces exact style of the screenshot */
+    text-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.25);
+}
+
+.team-card__role {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: hsla(0, 0%, 100%, 0.9);
+    margin: 0;
+    letter-spacing: 0.02em;
+    text-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .team-card {
+        width: 260px;
+        height: 390px;
+    }
+    .team-card__name {
+        font-size: 2.3rem;
+    }
+}

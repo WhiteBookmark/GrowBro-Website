@@ -134,6 +134,67 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // 7. TEAM SLIDER DRAG & NAVIGATION LOGIC
+  const slider = document.getElementById("teamSlider");
+  const prevBtn = document.getElementById("teamPrevBtn");
+  const nextBtn = document.getElementById("teamNextBtn");
+
+  if (slider) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    // Mouse Drag-to-Scroll Mechanics
+    slider.addEventListener("mousedown", (e) => {
+      isDown = true;
+      slider.classList.add("active-drag");
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener("mouseleave", () => {
+      isDown = false;
+      slider.classList.remove("active-drag");
+    });
+
+    slider.addEventListener("mouseup", () => {
+      isDown = false;
+      slider.classList.remove("active-drag");
+    });
+
+    slider.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.5; // Drag speed multiplier
+      slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // Arrow Button Navigation
+    const getScrollAmount = () => {
+      const card = slider.querySelector(".team-card");
+      return card ? card.offsetWidth + 20 : 310; // Card width + gap
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        slider.scrollBy({
+          left: -getScrollAmount(),
+          behavior: "smooth"
+        });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        slider.scrollBy({
+          left: getScrollAmount(),
+          behavior: "smooth"
+        });
+      });
+    }
+  }
 });
 
 // Smooth scroll for general anchor links

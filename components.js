@@ -67,7 +67,7 @@ class CommonFooter extends HTMLElement {
                     <div class="footer-bottom__left">
                         <p class="office-location">
                             Dubai - London - Islamabad <br>
-                            WEST AVENUE, 1808, DUBAI MARINA, DUBAI, UAE<br>
+                            West Avenue Marina Harbor<br>
                         </p>
                     </div>
                     <div class="footer-bottom__right">

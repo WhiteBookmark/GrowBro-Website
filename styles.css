@@ -1960,6 +1960,8 @@ body.video-active {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    background-color: hsl(0, 0%, 10%);
+    border: 1px solid hsl(0, 0%, 18%);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
     box-shadow: 0 10px 20px hsla(0, 0%, 0%, 0.3);
 }
@@ -1998,7 +2000,7 @@ body.video-active {
     position: relative;
     z-index: 2;
     padding: 1.5rem 1.25rem;
-    background: linear-gradient(0deg, hsla(0, 0%, 0%, 0.4) 0%, hsla(0, 0%, 0%, 0) 50%);
+    background: linear-gradient(0deg, hsla(0, 0%, 0%, 0.7) 0%, hsla(0, 0%, 0%, 0.4) 50%, hsla(0, 0%, 0%, 0) 100%);
     pointer-events: none;
     display: flex;
     flex-direction: column;
@@ -2008,24 +2010,24 @@ body.video-active {
 
 .team-card__name {
     font-family: "Europa Grotesk Bold", "Segoe UI", sans-serif;
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem);
     font-weight: 900;
     color: hsl(0, 0%, 100%);
-    line-height: 0.9;
-    letter-spacing: -0.03em;
-    margin: 0 0 0.2rem 0;
-    text-transform: lowercase; /* Forces exact style of the screenshot */
-    text-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.25);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.4rem 0;
+    text-transform: capitalize;
+    text-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.5);
 }
 
 .team-card__role {
     font-family: "Montserrat", sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: hsla(0, 0%, 100%, 0.9);
     margin: 0;
     letter-spacing: 0.02em;
-    text-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.3);
+    text-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.4);
 }
 
 /* Responsive adjustments */
@@ -2035,6 +2037,6 @@ body.video-active {
         height: 390px;
     }
     .team-card__name {
-        font-size: 2.3rem;
+        font-size: 1.75rem;
     }
 }
